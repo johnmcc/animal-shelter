@@ -12,5 +12,5 @@ CREATE TABLE pets(
   type VARCHAR(255) not null,
   admission_date DATE not null,
   adoptable BOOLEAN not null,
-  owner INT8 references owners(id) ON DELETE CASCADE
+  owner_id INT8 references owners(id) ON DELETE CASCADE
 );
