@@ -4,7 +4,7 @@ require_relative "../db/SqlRunner"
 require_relative "./Owner"
 
 class Pet
-  attr_reader :id, :name, :type, :admission_date, :adoptable
+  attr_reader :id, :name, :type, :admission_date, :adoptable, :owner_id
 
   def initialize options
     @id = options['id'].to_i if options['id']
@@ -27,12 +27,8 @@ class Pet
 
   def update
     sql = "UPDATE pets SET (name, type, admission_date, adoptable, owner_id) = ('#{@name}', '#{@type}', '#{@admission_date}', #{@adoptable}, #{@owner_id}) WHERE id=#{@id};"
-    result = SqlRunner.run(sql)
-  end
 
-  def toggle_adoptability
-    @adoptable = !@adoptable
-    update
+    result = SqlRunner.run(sql)
   end
 
   def date_formatted

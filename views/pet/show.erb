@@ -1,17 +1,31 @@
 <h1><%= @pet.name %></h1>
 <p class="pet_type"><%= @pet.type %></p>
+<p><%= @pet.name %> has been at the shelter since <%= @pet.date_formatted %>.</p>
 
-<form method="post" action="/pets/<%= @pet.id %>/toggle_adoptability">
-  <% if @pet.adoptable %>
-    <p>This animal is currently available for adoption.</p>
-    <input type="submit" value="Mark as unadoptable" />
-  <% else %>
-    <p>This animal is not currently available for adoption.</p>
-    <input type="submit" value="Mark as adoptable">
-  <% end %>
+<form method="post" action="/pets/<%= @pet.id %>/update">
+  <label>
+    Adoptability:
+    <select name="adoptable">
+      <option value="t" <%= "selected" if @pet.adoptable %>>Adoptable</option>
+      <option value="f" <%= "selected" if !@pet.adoptable %>>Not Adoptable</option>
+    </select>    
+  </label>
+
+  <label>
+    Owner:
+    <select name="owner_id">
+      <% for owner in @owners %>
+  <option value="<%= owner.id %>" <%= "selected" if owner.id == @pet.owner_id %>><%= owner.name %></option>
+      <% end %>
+    </select>
+  </label>
+
+  <input type="hidden" name="name" value="<%= @pet.name %>">
+  <input type="hidden" name="type" value="<%= @pet.type %>">
+  <input type="hidden" name="admission_date" value="<%= @pet.admission_date %>">
+
+  <input type="submit" value="Update" />
 </form>
 
 
-<p><%= @pet.name %> has been at the shelter since <%= @pet.date_formatted %>.</p>
 
-<p>This pet is currently owned by <%= @pet.owner.name %>.</p>
