@@ -1,0 +1,13 @@
+<h1>Animal Shelter</h1>
+
+<h2>All Animals</h2>
+
+<div id="pet_list">
+  <% for pet in @pets %>
+    <div class="pet">
+      <h3><%= pet.name %></h3>
+      <p>Admitted on: <%= pet.date_formatted %></p>
+      <p><a href="/pets/<%= pet.id %>">More Info</a></p>
+    </div>  
+  <% end %> 
+</div>

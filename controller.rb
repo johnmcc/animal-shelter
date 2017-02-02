@@ -1,6 +1,11 @@
 require "sinatra"
 require "sinatra/contrib/all"
 
+require_relative "./models/Pet"
+require_relative "./controllers/Pet"
+require_relative "./controllers/Owner"
+
 get "/" do
-  "Hello World!"
+  @pets = Pet.all
+  erb :index
 end

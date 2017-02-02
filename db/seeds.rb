@@ -10,8 +10,13 @@ owner1.save
 owner2.save
 owner3.save
 
-pet1 = Pet.new({ 'name' => 'Lugs', 'type' => 'Rabbit', 'admission_date' => 'January 1, 2016', 'adoptable' => true, 'owner_id' => owner1.id })
+pet1 = Pet.new({ 'name' => 'Lugs', 'type' => 'Rabbit', 'admission_date' => 'January 1, 2016', 'adoptable' => false, 'owner_id' => owner2.id })
 pet2 = Pet.new({ 'name' => 'Tiny', 'type' => 'Dog', 'admission_date' => 'January 17, 2017', 'adoptable' => false, 'owner_id' => owner1.id })
+pet3 = Pet.new({ 'name' => 'Beaks', 'type' => 'Crow', 'admission_date' => 'October 20, 2016', 'adoptable' => false, 'owner_id' => owner1.id })
 
 pet1.save
 pet2.save
+pet3.save
+
+binding.pry
+nil

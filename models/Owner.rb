@@ -1,7 +1,7 @@
 require_relative "../db/SqlRunner"
 
 class Owner
-  attr_reader :id
+  attr_reader :id, :name
 
   def initialize options 
     @id = nil or options['id']

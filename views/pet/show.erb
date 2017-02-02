@@ -1,0 +1,17 @@
+<h1><%= @pet.name %></h1>
+<p class="pet_type"><%= @pet.type %></p>
+
+<form method="post" action="/pets/<%= @pet.id %>/toggle_adoptability">
+  <% if @pet.adoptable %>
+    <p>This animal is currently available for adoption.</p>
+    <input type="submit" value="Mark as unadoptable" />
+  <% else %>
+    <p>This animal is not currently available for adoption.</p>
+    <input type="submit" value="Mark as adoptable">
+  <% end %>
+</form>
+
+
+<p><%= @pet.name %> has been at the shelter since <%= @pet.date_formatted %>.</p>
+
+<p>This pet is currently owned by <%= @pet.owner.name %>.</p>
