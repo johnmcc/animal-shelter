@@ -1,16 +1,18 @@
-<h1>Owners</h1>
-<% for owner in @owners %>
-  <div class="owner">
-    <h2><%= owner.name %></h2>
-    <% if owner.pets.count > 0 %>
-      <p>...owns the following pets:</p>
-      <ul>
-        <% for pet in owner.pets %>
-          <li><%= pet.name %> - <%= pet.type %></li>
-        <% end %>
-      </ul>
-    <% else %>
-      <p>...doesn't own any pets yet :(</p>
-    <% end %>
-  </div>
-<% end %>
+<h2 class="subheader">Owners</h2>
+<div id="owner_list">
+  <% for owner in @owners %>
+    <div class="owner">
+      <h3><%= owner.name %></h3>
+      <% if owner.pets.count > 0 %>
+        <p>...owns the following pets:</p>
+        <ul>
+          <% for pet in owner.pets %>
+            <li> <a href="/pets/<%= pet.id %>"><%= pet.name %></a>  - <%= pet.type.type %></li>
+          <% end %>
+        </ul>
+      <% else %>
+        <p>...doesn't own any pets yet :(</p>
+      <% end %>
+    </div>
+  <% end %>  
+</div>

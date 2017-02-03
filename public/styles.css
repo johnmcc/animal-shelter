@@ -1,0 +1,112 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Bitter', serif;
+  color: #2E0014;
+}
+
+a, a:link, a:visited {
+  transition: .15s all ease-in;
+}
+
+.subheader {
+  text-align: center;
+}
+
+main {
+  width: 80%;
+  margin: 0 auto;
+}
+
+main h1 {
+  text-align: center;
+}
+
+
+
+main a, main a:link, main a:visited {
+  background: #809848;
+  text-decoration: none;
+  color: #FFF;
+  padding: 10px 15px;
+  border-radius: 2px;
+}
+
+main a:hover, main a:active, main a:focus {
+  background: #B5DEAD;
+  color: #2E0014; 
+}
+
+nav {
+  background: #442220;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  list-style: none;
+  justify-content: center;
+}
+
+nav ul li {
+  padding: 20px;
+}
+
+nav ul a, nav ul a:link, nav ul a:visited {
+  font-family: 'Bitter', serif;
+  color: #fff;
+  text-decoration: none;
+  padding: 20px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+nav ul a:hover, nav ul a:active, nav ul a:focus {
+  background: #809848;
+}
+
+p.no-results {
+  text-align: center;
+}
+
+#pet_list, #owner_list {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+}
+
+#pet_list .pet, #owner_list .owner {
+  background: #B5DEAD;
+  margin-bottom: 20px;
+  padding: 0 20px;
+  width: 50%;
+  border: 2px solid #809848;
+  border-radius: 2px;
+}
+
+#pet_list .pet a, #pet_list .pet a:link, #pet_list .pet a:visited {
+  display: inline-block;
+}
+
+#pet_list .pet a:hover, #pet_list .pet a:active, #pet_list .pet a:focus {
+  background: #586931;
+  color: #FFF;
+}
+
+#owner_list a, #owner_list a:link, #owner_list a:visited {
+  display: inline;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  color: #442220;
+  text-decoration: underline;
+}
+
+#owner_list a:hover, #owner_list a:active, #owner_list a:focus {
+  text-decoration: none;
+}
