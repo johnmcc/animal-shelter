@@ -1,4 +1,5 @@
 require_relative "../db/SqlRunner"
+require_relative "./Pet"
 
 class Owner
   attr_reader :id, :name
@@ -12,6 +13,12 @@ class Owner
     sql = "INSERT INTO owners (name) VALUES ('#{@name}') returning id;"
     result = SqlRunner.run sql
     @id = result[0]['id'].to_i
+  end
+
+  def pets
+    sql = "SELECT * FROM pets WHERE owner_id=#{@id}"
+    pets = SqlRunner.run(sql)
+    return pets.map {|pet| Pet.new(pet) }
   end
 
   def self.all
