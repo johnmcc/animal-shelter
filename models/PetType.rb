@@ -11,4 +11,10 @@ class PetType
     result = SqlRunner.run sql
     @id = result.first['id']
   end
+
+  def self.all
+    sql = "SELECT * FROM pet_types;"
+    result = SqlRunner.run sql
+    return result.map {|type| PetType.new(type)}
+  end
 end

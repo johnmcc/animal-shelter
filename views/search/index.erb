@@ -1,0 +1,30 @@
+<form action="/search">
+  <h2>Search by Type</h2>
+  <% for type in @types %>
+    <label>
+      <input type="radio" name="type_id" value="<%= type.id %>" <%= "checked" if @params[:type_id].to_i == type.id %> required />
+      <%= type.type %>
+    </label>
+  <% end %>
+
+  <h2>Search by availability</h2>
+  <label>
+    <input type="checkbox" name="availability" <%= "checked" if @params[:availability] %> /> Only show available pets
+  </label>
+
+  <input type="submit" value="Search" />
+</form>
+
+<% if @pets != nil && @pets.count > 0 %>
+  <div id="pet_list">
+    <% for pet in @pets %>
+      <div class="pet">
+        <h3><%= pet.name %></h3>
+        <p>Admitted on: <%= pet.date_formatted %></p>
+        <p><a href="/pets/<%= pet.id %>">More Info</a></p>
+      </div>  
+    <% end %> 
+  </div>
+<% else %>
+  <p class="no-results">There are no pets to show at the moment. Please try the filters above.</p>
+<% end %>

@@ -26,8 +26,6 @@ main h1 {
   text-align: center;
 }
 
-
-
 main a, main a:link, main a:visited {
   background: #809848;
   text-decoration: none;
@@ -54,14 +52,14 @@ nav ul {
 }
 
 nav ul li {
-  padding: 20px;
+  padding: 20px 0;
 }
 
 nav ul a, nav ul a:link, nav ul a:visited {
   font-family: 'Bitter', serif;
   color: #fff;
   text-decoration: none;
-  padding: 20px;
+  padding: 20px 25px;
   font-size: 20px;
   cursor: pointer;
 }

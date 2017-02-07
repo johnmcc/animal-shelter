@@ -17,7 +17,7 @@ class Pet
   end
 
   def fix_boolean(val)
-   return val == 't' || val == true ? true:false
+   return val == 't' || val == true
   end
 
   def save
@@ -46,6 +46,16 @@ class Pet
   def self.available
     sql = "SELECT * FROM pets WHERE adoptable=true AND owner_id=1;"
     result = SqlRunner.run sql
+    return result.map {|pet| Pet.new(pet)}
+  end
+
+  def self.search type_id, available_only
+    sql = "SELECT * FROM pets WHERE type_id=#{type_id}"
+    if available_only
+      sql += " AND adoptable=true AND owner_id=1"
+    end
+
+    result = SqlRunner.run(sql)
     return result.map {|pet| Pet.new(pet)}
   end
 
